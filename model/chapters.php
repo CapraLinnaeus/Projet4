@@ -1,0 +1,68 @@
+<?php
+function getChapitres($chapterid){
+    $db = dbConnect();
+    $req = $db->prepare("SELECT * FROM chapitres WHERE id = ?");
+    $req->execute(array($chapterid));
+    $post  = $req->fetch();
+
+    return $post;
+}
+
+function getComment($chapterid){
+    $db = dbConnect();
+    $req = $db->prepare("SELECT * FROM comment WHERE idchapitre = ? ORDER BY date DESC");
+    $req->execute(array($chapterid));
+    $post = $req->fetch();
+
+    return $post;
+}
+
+function deleteChapter($chapterid){
+    $db = dbConnect();
+    $req = $db->prepare("DELETE FROM chapitres WHERE id = ?");
+    $req->execute(array($chapterid));
+
+    return $req;
+}
+
+function deleteCommentByChapter($chapterid){
+    $db = dbConnect();
+    $req = $db->prepare("DELETE FROM comment WHERE idchapitre = ?");
+    $req->execute(array($chapterid));
+
+    return $req;
+}
+
+function deleteComment($id){
+    $db = dbConnect();
+    $req = $db->prepare("DELETE FROM comment WHERE id = ?");
+    $req->execute(array($id));
+
+    return $req;
+}
+
+function updateComment($reportValue,$updateComment){
+    $db = dbConnect();
+    $req = $db->prepare("UPDATE comment SET report = ? WHERE id =?");
+    $req->execute(array($reportValue, $updateComment));
+
+    return $req;
+
+}
+
+
+function dbConnect(){
+    try
+    {
+        $bdd = new PDO('mysql:host=localhost;dbname=blogecrivain;charset=utf8', 'root', 'root');
+        return $bdd;
+
+    }
+    catch (Exception $e)
+    {
+        die('Erreur : ' . $e->getMessage());
+    }
+}
+?>
+
+

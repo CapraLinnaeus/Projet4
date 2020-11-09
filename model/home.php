@@ -13,7 +13,7 @@ function getResume(){
     return $req;
 }
 
-function getChapter(){
+function getChapters(){
     $db = dbConnect();
     $req = $db->query("SELECT * FROM chapitres ORDER BY id DESC");
 

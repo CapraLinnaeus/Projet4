@@ -1,10 +1,11 @@
 <?php
-function deleteComment($deleteComment)
-{
+function createchapter($id, $title, $content, $date){
     $db = dbConnect();
-    $db->exec('INSERT INTO chapitre (id, titre, contenu, publication,) VALUES(X, new titre, new contenu, new())');
+    $req = $db->prepare("INSERT INTO chapitres (id, title, content, datepublication) VALUES (?, ?, ?, ?)");
+    $req->execute(array($id, $title, $content, $date));
 
-    echo 'Modifications effectuées';
+    return $req;
+
 }
 
 function dbConnect(){

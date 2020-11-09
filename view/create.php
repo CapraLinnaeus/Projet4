@@ -9,17 +9,17 @@
     <title>Create</title>
 </head>
 <body>
-<form>
+<form method="post" action="../controllers/CreateChapter.php">
     <div class="form-group">
         <label for="exampleInputEmail1">Titre</label>
-        <input type="text" class="form-control" id="exampleInputTitle1" aria-describedby="emailHelp" placeholder="Titre du chapître">
+        <input type="text" class="form-control" id="exampleInputTitle1" aria-describedby="emailHelp" name="title" placeholder="Titre du chapître">
     </div>
         <div class="form-group">
             <label for="exampleInputEmail1">ID</label>
-            <input type="number" class="form-control" id="exampleID" aria-describedby="id" placeholder="Numéro chapître">
+            <input type="number" class="form-control" id="exampleID" aria-describedby="id" name="number" placeholder="Numéro chapître">
         </div>
     <label for="exampleFormControlTextarea1">Contenu</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="3"></textarea>
 <br>
     <button type="submit" class="btn btn-primary">Annuler</button>
     <button type="submit" class="btn btn-primary">Valider</button>

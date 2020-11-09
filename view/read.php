@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">x
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -24,13 +24,13 @@
 
     Donec massa sapien faucibus et molestie. Habitant morbi tristique senectus et netus et malesuada. Orci a scelerisque purus semper eget. Fringilla urna porttitor rhoncus dolor purus non enim praesent elementum. In eu mi bibendum neque egestas congue quisque egestas diam. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Semper viverra nam libero justo laoreet sit amet cursus. Turpis egestas sed tempus urna et pharetra pharetra massa massa. Pulvinar elementum integer enim neque volutpat ac. Etiam non quam lacus suspendisse faucibus interdum posuere lorem. Purus non enim praesent elementum facilisis leo. Nulla aliquet porttitor lacus luctus accumsan tortor. Facilisi nullam vehicula ipsum a arcu cursus vitae. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Tempor id eu nisl nunc mi ipsum faucibus.</p>
 
-<div class="container" style="border: 1px solid silver;height:60px;">
+<div class="container border rounded shadow" style="height:120px; margin-bottom: 15px; background-color: #f6f6f6;">
     <strong>Pseudo1</strong> Incroyable histoire j'adore!  <button type="button" class="btn btn-danger">Report</button> <button type="button" class="btn btn-danger">X</button>
 </div>
-<div class="container" style="border: 1px solid silver;height:60px;">
+<div class="container border rounded shadow" style="height:120px; margin-bottom: 15px; background-color: #f6f6f6;">
     <strong>Pseudo2</strong> Je veux la suite!!!  <button type="button" class="btn btn-danger">Report</button> <button type="button" class="btn btn-danger">X</button>
 </div>
-<div class="container" style="border: 1px solid silver;height:60px;">
+<div class="container border rounded shadow" style="height:120px; margin-bottom: 15px; background-color: #f6f6f6;">
     <strong>Pseudo3</strong> Je n'aime pas du tout c'est mauvais c'est nul vous êtes tous nuls. <button type="button" class="btn btn-danger">Report</button> <button type="button" class="btn btn-danger">X</button>
 </div>
 </body>

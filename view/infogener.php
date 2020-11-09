@@ -14,13 +14,13 @@
 <br>
 <div class="container" style="border: 1px solid silver;height:300px;">
 
-    <form>
+    <form method="post" action="../controllers/updateinfogener.php">
         <div class="form-group">
             <label for="exampleInputEmail1">Titre</label>
-            <input type="text" class="form-control" id="exampleInputTitle1" aria-describedby="emailHelp" placeholder="Titre du chapître">
+            <input type="text" class="form-control" id="exampleInputTitle1" name="title" aria-describedby="emailHelp" placeholder="Titre du chapître">
         </div>
         <label for="exampleFormControlTextarea1">Contenu</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="resume" rows="3"></textarea>
     <br>
         <button type="submit" class="btn btn-success">Valider</button>
     </form>

@@ -19,7 +19,7 @@ function getResume($getRes){
 
 function updatetitle($titleUpdate){
     $db = dbConnect();
-    $req = $db->prepare("UPDATE infogener SET value = 'nouvtitre' WHERE key = 'title'");
+    $req = $db->prepare("UPDATE infogener SET value = ? WHERE info = 'title'");
     $req->execute(array($titleUpdate));
 
     return $req;
@@ -27,7 +27,7 @@ function updatetitle($titleUpdate){
 
 function updateResume($resumeUpdate){
     $db = dbConnect();
-    $req = $db->prepare("UPDATE infogener SET value = 'nouveautitre' WHERE key = 'title'");
+    $req = $db->prepare("UPDATE infogener SET value = ? WHERE info = 'resume'");
     $req->execute(array($resumeUpdate));
 
     return $req;

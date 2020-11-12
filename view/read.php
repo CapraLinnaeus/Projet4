@@ -30,14 +30,14 @@
 
 
 </div> <br/>
-<div class="container border rounded shadow" style="height:120px; margin-bottom: 15px; background-color: #f6f6f6;">
-    <strong>Pseudo1</strong> Incroyable histoire j'adore!  <button type="button" class="btn btn-danger">Report</button> <button type="button" class="btn btn-danger">X</button>
+<div class="container border rounded shadow" style="height:120px; margin-bottom: 15px;">
+    <strong>Pseudo1</strong> Incroyable histoire j'adore!  <div style="position: relative; float: right"><button type="button" class="btn btn-outline-danger">Report</button> <button type="button" class="btn btn-outline-danger">X</button></div>
 </div>
-<div class="container border rounded shadow" style="height:120px; margin-bottom: 15px; background-color: #f6f6f6;">
-    <strong>Pseudo2</strong> Je veux la suite!!!  <button type="button" class="btn btn-danger">Report</button> <button type="button" class="btn btn-danger">X</button>
+<div class="container border rounded shadow" style="height:120px; margin-bottom: 15px; ;">
+    <strong>Pseudo2</strong> Je veux la suite!!!  <div style="position: relative; float: right"><button type="button" class="btn btn-outline-danger">Report</button> <button type="button" class="btn btn-outline-danger">X</button></div>
 </div>
-<div class="container border rounded shadow" style="height:120px; margin-bottom: 15px; background-color: #f6f6f6;">
-    <strong>Pseudo3</strong> Je n'aime pas du tout c'est mauvais c'est nul vous êtes tous nuls. <button type="button" class="btn btn-danger">Report</button> <button type="button" class="btn btn-danger">X</button>
+<div class="container border rounded shadow" style="height:120px; margin-bottom: 15px; ">
+    <strong>Pseudo3</strong> Je n'aime pas du tout c'est mauvais c'est nul vous êtes tous nuls. <div style="position: relative; float: right"><button type="button" class="btn btn-outline-danger">Report</button> <button type="button" class="btn btn-outline-danger">X</button></div>
 </div>
 </body>
 </html>

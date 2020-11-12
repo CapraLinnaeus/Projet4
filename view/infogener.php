@@ -12,9 +12,10 @@
 <body>
 <center><h1>Informations générales</h1></center>
 <br>
-<div class="container" style="border: 1px solid silver;height:300px;">
 
-    <form method="post" action="../controllers/updateinfogener.php">
+<div class="container">
+
+    <form method="post" action="../controllers/updateinfogener.php" class="container border rounded shadow">
         <div class="form-group">
             <label for="exampleInputEmail1">Titre</label>
             <input type="text" class="form-control" id="exampleInputTitle1" name="title" aria-describedby="emailHelp" placeholder="Titre du chapître">
@@ -22,27 +23,33 @@
         <label for="exampleFormControlTextarea1">Contenu</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" name="resume" rows="3"></textarea>
     <br>
-        <button type="submit" class="btn btn-success">Valider</button>
+        <button type="submit" class="btn btn-outline-success" style="margin-bottom: 10px;">Valider</button>
     </form>
 
     <form>
 <br>
-            <h2>Commentaires récents</h2>
-
-        <div class="container" style="border: 1px solid silver;height:60px;">
+            <h2>Commentaires</h2>
+<div class="container border rounded shadow">
+    <br>
+        <h3>Commentaires récents</h3>
+        <div class="container border " style="border: 1px solid silver;height:60px; background-color: #f6f6f6">
             <strong>Pseudo3</strong> Incroyable histoire j'adore! .</div>
+    <br>
 
-        <div class="container" style="border: 1px solid silver;height:60px;">
+        <div class="container border" style="border: 1px solid silver;height:60px; background-color: #f6f6f6">
             <strong>Pseudo3</strong> je veux la suite!!!.</div>
+    <br>
 
-        <div class="container" style="border: 1px solid silver;height:60px;">
+        <div class="container border" style="border: 1px solid silver;height:60px; background-color: #f6f6f6">
             <strong>Pseudo3</strong> Je n'aime pas du tout c'est mauvais c'est nul vous êtes tous nuls.</div>
 <br>
-        <h2>Commentaires signalés</h2>
+        <h3>Commentaires signalés</h3>
 
-        <div class="container" style="border: 1px solid silver;height:60px;">
-            <strong>Pseudo3</strong> Je n'aime pas du tout c'est mauvais c'est nul vous êtes tous nuls. <button type="button" class="btn btn-danger">Supprimer</button>
+        <div class="container border" style="border: 1px solid silver;height:60px; background-color: #f6f6f6">
+            <strong>Pseudo3</strong> Je n'aime pas du tout c'est mauvais c'est nul vous êtes tous nuls. <button type="button" class="btn btn-outline-danger" style="position: relative; float: right" >Supprimer</button>
         </div>
+    <br>
+</div>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-function getChapitres($chapterid){
+function getChapter($chapterid){
     $db = dbConnect();
     $req = $db->prepare("SELECT * FROM chapitres WHERE id = ?");
     $req->execute(array($chapterid));
@@ -8,13 +8,12 @@ function getChapitres($chapterid){
     return $post;
 }
 
-function getComment($chapterid){
+function getComments($chapterid){
     $db = dbConnect();
-    $req = $db->prepare("SELECT * FROM comment WHERE idchapitre = ? ORDER BY date DESC");
+    $req = $db->prepare("SELECT * FROM comment WHERE idchapitre = ? ORDER BY datepublication DESC");
     $req->execute(array($chapterid));
-    $post = $req->fetch();
 
-    return $post;
+    return $req;
 }
 
 function deleteChapter($chapterid){

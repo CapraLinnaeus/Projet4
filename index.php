@@ -58,6 +58,7 @@ $title = $title->fetch();
 while ($chapter = $chapters->fetch())
 {
     ?>
+    <a href="view/read.php?id=<?= htmlspecialchars($chapter['id']) ?>">
 <div class="container border rounded shadow" style="height:80px; margin-bottom: 15px; background-color: #f6f6f6">
     <strong>Chapitre <?= htmlspecialchars($chapter['id']) ?> <?= htmlspecialchars($chapter['title']) ?>: </strong><?= htmlspecialchars($chapter['content']) ?>
     <form method="post" action="controllers/deletechapters.php">
@@ -65,10 +66,10 @@ while ($chapter = $chapters->fetch())
         <button type="submit" class="btn btn-danger">X</button>
     </form>
 </div>
+    </a>
  <?php
 }
 ?>
 
-?>
 </body>
 </html>

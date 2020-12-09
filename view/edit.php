@@ -1,3 +1,8 @@
+<?php
+$id = $_GET['id'];
+require_once ("../controllers/getChapter.php");
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,30 +15,30 @@
     <meta charset="UTF-8">
     <title>Create</title>
 </head>
-
 <script>
     tinymce.init({
-        selector: '#createContent'
+        selector: '#editContent'
     });
 </script>
 <body>
 <div class="container border rounded shadow" style="margin-top: 15px; margin-bottom: 15px;">
-<form method="post" action="../controllers/CreateChapter.php">
-    <div class="form-group" >
-        <label for="exampleInputEmail1">Titre</label>
-        <input type="text" class="form-control" id="exampleInputTitle1" aria-describedby="emailHelp" name="title" placeholder="Titre du chapître">
-    </div>
+    <form method="post" action="../controllers/editChapter.php">
+        <div class="form-group" >
+            <label for="exampleInputEmail1">Titre</label>
+            <input type="text" class="form-control" id="exampleInputTitle1" value="<?= htmlspecialchars($chapter['title'])?>" aria-describedby="emailHelp" name="title" placeholder="Titre du chapître">
+        </div>
         <div class="form-group">
             <label for="exampleInputEmail1">ID</label>
-            <input type="number" class="form-control" id="exampleID" aria-describedby="id" name="number" placeholder="Numéro chapître">
+            <input type="number" class="form-control" id="exampleID" value="<?=$id?>" aria-describedby="id" name="nonq" placeholder="Numéro chapître" disabled>
+            <input type="number" class="form-control d-none" id="exampleID" value="<?= htmlspecialchars($chapter['id'])?>" aria-describedby="id" name="idchapter" placeholder="Numéro chapître">
         </div>
-    <label for="exampleFormControlTextarea1">Contenu</label>
-    <textarea class="form-control" id="createContent" name="content" rows="3"></textarea>
-<br>
-    <button type="submit" class="btn btn-primary">Annuler</button>
-    <button type="submit" class="btn btn-primary">Valider</button>
+        <label for="exampleFormControlTextarea1">Contenu</label>
+        <textarea class="form-control" id="editContent" name="content" rows="3"><?= htmlspecialchars($chapter['content'])?></textarea>
+        <br>
+        <button type="button" class="btn btn-primary">Annuler</button>
+        <button type="submit" class="btn btn-primary">Valider</button>
 
-</form>
+    </form>
 </div>
 </body>
 </html>

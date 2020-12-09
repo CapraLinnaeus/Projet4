@@ -24,6 +24,14 @@ function deleteChapter($chapterid){
     return $req;
 }
 
+function addComment($username,$content,$datepublication,$idchapitre){
+    $db = dbConnect();
+    $req = $db->prepare("INSERT INTO `comment` (`id`, `name`, `content`, `datepublication`, `report`, `idchapitre`) VALUES (NULL, ?,?, ?, '0', ?)");
+    $req->execute(array($username, $content, $datepublication, $idchapitre));
+
+    return $req;
+}
+
 function deleteCommentByChapter($chapterid){
     $db = dbConnect();
     $req = $db->prepare("DELETE FROM comment WHERE idchapitre = ?");
@@ -40,7 +48,7 @@ function deleteComment($id){
     return $req;
 }
 
-function updateComment($reportValue,$updateComment){
+function reportComment($reportValue,$updateComment){
     $db = dbConnect();
     $req = $db->prepare("UPDATE comment SET report = ? WHERE id =?");
     $req->execute(array($reportValue, $updateComment));

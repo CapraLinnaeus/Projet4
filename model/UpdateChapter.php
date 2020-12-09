@@ -1,32 +1,33 @@
 <?php
 
-function getChapter($getChapter){
+function getChapter($getChapter)
+{
     $db = dbConnect();
     $req = $db->prepare("SELECT * FROM chapitres WHERE id = ?");
     $req->execute(array($getChapter));
-    $post  = $req->fetch();
+    $post = $req->fetch();
 
     return $post;
 }
 
-function updateChapter($updateChapter){
+function updateChapter($title, $content, $id)
+{
     $db = dbConnect();
-    $req = $db->prepare("UPDATE chapitre SET titre = 'new titre', contenu = 'new contenu', modification =now() WHERE id = ?");
-    $req->execute(array($updateChapter));
+    $req = $db->prepare("UPDATE chapitres SET title = ? , content = ?, datemodification =now() WHERE id = ?");
+    $req->execute(array($title, $content, $id));
 
     return $req;
 }
 
-function dbConnect(){
-    try
-    {
+function dbConnect()
+{
+    try {
         $bdd = new PDO('mysql:host=localhost;dbname=blogecrivain;charset=utf8', 'root', 'root');
         return $bdd;
 
-    }
-    catch (Exception $e)
-    {
+    } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
 }
+
 ?>

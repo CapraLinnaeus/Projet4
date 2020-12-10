@@ -1,20 +1,16 @@
 <?php
-function getTitle($gettitle){
+function getAdminTitle(){
     $db = dbConnect();
-    $req = $db->prepare("SELECT value FROM infogener WHERE key = title");
-    $req->execute(array($gettitle));
-    $post  = $req->fetch();
+    $req = $db->query("SELECT value FROM infogener WHERE info ='title'");
 
-    return $post;
+    return $req;
 }
 
-function getResume($getRes){
+function getResume(){
     $db = dbConnect();
-    $req = $db->prepare("SELECT value FROM infogener WHERE key = resume");
-    $req->execute(array($getRes));
-    $post  = $req->fetch();
+    $req = $db->query("SELECT value FROM infogener WHERE info = 'resume'");
 
-    return $post;
+    return $req;
 }
 
 function updatetitle($titleUpdate){
@@ -33,13 +29,18 @@ function updateResume($resumeUpdate){
     return $req;
 }
 
-function getComment($getComm){
+function getReportedComment(){
     $db = dbConnect();
-    $req = $db->prepare("SELECT * FROM comment WHERE report > 0 ORDER BY report DESC");
-    $req->execute(array($getComm));
-    $post  = $req->fetch();
+    $req = $db->query("SELECT * FROM comment WHERE report > 0 ORDER BY report DESC");
 
-    return $post;
+    return $req;
+}
+
+function getRecentComment(){
+    $db = dbConnect();
+    $req = $db->query("SELECT * FROM comment ORDER BY datepublication DESC LIMIT 10");
+
+    return $req;
 }
 
 function deleteComment($deleteComment){

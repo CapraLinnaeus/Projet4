@@ -22,21 +22,15 @@ class InfoController {
     }
 
     public function updateInfos() {
-        $this->infoManager->updatetitle($_POST["title"]);
-        $this->infoManager->updateResume($_POST["resume"]);
+        if (!($_POST["title"] && $_POST["resume"])) {
+            header("Location: ./view/infogener.php?error=1");
+        } else {
+            $this->infoManager->updatetitle($_POST["title"]);
+            $this->infoManager->updateResume($_POST["resume"]);
 
-        header('Location: ../');
+            header('Location: ./');
+        }
     }
 }
 
-if(isset($_GET['action'])) {
-    $action = $_GET['action'];
-    $infoController = new InfoController();
-
-    switch($action) {
-        case 'updateInfos':
-            $infoController->updateInfos();
-            break;
-    }
-}
 ?>

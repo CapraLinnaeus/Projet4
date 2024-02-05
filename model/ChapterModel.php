@@ -8,7 +8,12 @@ class ChapterModel {
 
     public function createChapter($id, $title, $content, $date){
         $req = $this->db->prepare("INSERT INTO chapitres (id, title, content, datepublication) VALUES (?, ?, ?, ?)");
-        $req->execute(array($id, $title, $content, $date));
+        $req->execute(array(
+            htmlspecialchars($id),
+            htmlspecialchars($title),
+            htmlspecialchars($content),
+            htmlspecialchars($date)
+        ));
 
         return $req;
     }
@@ -37,7 +42,11 @@ class ChapterModel {
     public function updateChapter($title, $content, $id)
     {
         $req = $this->db->prepare("UPDATE chapitres SET title = ? , content = ?, datemodification =now() WHERE id = ?");
-        $req->execute(array($title, $content, $id));
+        $req->execute(array(
+            htmlspecialchars($title),
+            htmlspecialchars($content),
+            htmlspecialchars($id)
+        ));
 
         return $req;
     }

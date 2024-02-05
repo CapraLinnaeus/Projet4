@@ -19,7 +19,8 @@ CREATE TABLE `chapitres`
     `title`            varchar(50) NOT NULL,
     `content`          text        NOT NULL,
     `datepublication`  date        NOT NULL,
-    `datemodification` date DEFAULT NULL
+    `datemodification` date DEFAULT NULL,
+    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -32,8 +33,9 @@ CREATE TABLE `comment`
     `content`         text        NOT NULL,
     `datepublication` date        NOT NULL,
     `report`          int(11) NOT NULL DEFAULT '0',
-    `idchapitre`      text        NOT NULL,
-    PRIMARY KEY (`id`)
+    `idchapitre`      int(11) NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_comment_chapitre` FOREIGN KEY (`idchapitre`) REFERENCES `chapitres` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -52,13 +54,13 @@ CREATE TABLE `user`
 (
     `id`          int(11) NOT NULL,
     `identifiant` varchar(20) NOT NULL,
-    `mdp`         varchar(20) NOT NULL,
+    `mdp`         varchar(255) NOT NULL,
     `email`       varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 INSERT INTO `user` (`id`, `identifiant`, `mdp`, `email`)
-VALUES (1, 'j.forteroche', 'ecrivain123', NULL);
+VALUES (1, 'j.forteroche', SHA2('ecrivain123', 256), NULL);
 
 
 ALTER TABLE `user`

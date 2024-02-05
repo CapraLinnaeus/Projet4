@@ -32,18 +32,39 @@ class ChapterController {
 
     public function edit()
     {
-        $this->chapterModel->updateChapter($_POST["title"], $_POST["content"], $_POST["idchapter"]);
-        header("Location: ../view/read.php?id=" . $_POST["idchapter"]);
+        if (!($_POST["idchapter"] && $_POST["title"] && $_POST["content"])) {
+            header("Location: ./view/edit.php?id=" . $_POST["idchapter"] . "&error=1");
+        } else {
+            $this->chapterModel->updateChapter(
+                $_POST["title"],
+                $_POST["content"],
+                $_POST["idchapter"]
+            );
+            header("Location: ./view/read.php?id=" . $_POST["idchapter"]);
+        }
     }
 
     public function create() {
-        $this->chapterModel->createChapter($_POST["number"], $_POST["title"], $_POST["content"], date("Y/m/d"));
-        header('Location: ../');
+        try {
+            if (!($_POST["number"] && $_POST["title"] && $_POST["content"])) {
+                header("Location: ./view/create.php?error=1");
+            } else {
+                $this->chapterModel->createChapter(
+                    $_POST["number"],
+                    $_POST["title"],
+                    $_POST["content"],
+                    date("Y/m/d")
+                );
+                header('Location: ./');
+            }
+        } catch (Exception $e) {
+            header("Location: ./view/create.php?error=2");
+        }
     }
 
     public function delete() {
         $this->chapterModel->deleteChapter($_POST['chapnumber']);
-        header('Location: ../');
+        header('Location: ./');
     }
 
     public function getAdjacentChapters($chapterId) {
@@ -55,25 +76,6 @@ class ChapterController {
             'nextChapter' => $nextChapter,
         ];
     }
-
-
-
 }
 
-if(isset($_GET['action'])) {
-    $action = $_GET['action'];
-    $chapterController = new ChapterController();
-
-    switch($action) {
-        case 'edit':
-            $chapterController->edit();
-            break;
-        case 'create':
-            $chapterController->create();
-            break;
-        case 'delete':
-            $chapterController->delete();
-            break;
-    }
-}
 ?>

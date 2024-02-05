@@ -8,7 +8,12 @@ class CommentModel {
 
     public function addComment($username, $content, $datePublication, $idChapitre) {
         $req = $this->db->prepare("INSERT INTO `comment` (`name`, `content`, `datepublication`, `report`, `idchapitre`) VALUES (?, ?, ?, '0', ?)");
-        $req->execute(array($username, $content, $datePublication, $idChapitre));
+        $req->execute(array(
+            htmlspecialchars($username),
+            htmlspecialchars($content),
+            htmlspecialchars($datePublication),
+            htmlspecialchars($idChapitre)
+        ));
 
         return $req;
     }

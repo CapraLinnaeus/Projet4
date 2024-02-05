@@ -20,14 +20,14 @@ class InfoManager {
 
     public function updatetitle($titleUpdate){
         $req = $this->db->prepare("UPDATE infogener SET value = ? WHERE info = 'title'");
-        $req->execute(array($titleUpdate));
+        $req->execute(array(htmlspecialchars($titleUpdate)));
 
         return $req;
     }
 
     public function updateResume($resumeUpdate){
         $req = $this->db->prepare("UPDATE infogener SET value = ? WHERE info = 'resume'");
-        $req->execute(array($resumeUpdate));
+        $req->execute(array(htmlspecialchars($resumeUpdate)));
 
         return $req;
     }

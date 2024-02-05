@@ -11,6 +11,9 @@ class UserModel
 
     public function checkLogin($username, $password)
     {
+        $username = htmlspecialchars($username);
+        $password = htmlspecialchars($password);
+        $password = hash('sha256', $password);
         $query = "SELECT * FROM user WHERE identifiant='$username' AND mdp='$password'";
         $result = $this->db->query($query);
 

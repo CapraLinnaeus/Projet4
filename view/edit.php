@@ -15,31 +15,37 @@ include_once("../head.php")
 ?>
 
 
+
+
+<body>
+<a href="read.php?id=<?=$chapter['id']?>"><img style="max-width: 50px" src="../img/109618.png" alt="arrow"></a>
+<div class="container border rounded shadow" style="margin-top: 15px; padding-bottom: 15px; margin-bottom: 15px;">
+    <form method="post" action="../router.php?action=editChapter">
+        <div class="form-group" >
+            <label for="exampleInputTitle1">Titre</label>
+            <input type="text" class="form-control" id="exampleInputTitle1" value="<?= htmlspecialchars_decode($chapter['title'])?>" aria-describedby="emailHelp" name="title" placeholder="Titre du chapître">
+        </div>
+        <div class="form-group">
+            <label for="exampleID">ID</label>
+            <input type="number" class="form-control" disabled id="exampleID" value="<?= htmlspecialchars($chapter['id'])?>"  name="idchapter" placeholder="Numéro chapître">
+        </div>
+        <label for="editContent">Contenu</label>
+        <textarea class="form-control" id="editContent" name="content" rows="3"><?= htmlspecialchars_decode($chapter['content']) ?></textarea>
+        <br>
+        <a href="read.php?id=<?=$chapter['id']?>" class="btn btn-primary">Annuler</a>
+        <button type="submit" class="btn btn-primary">Valider</button>
+        <?php
+        if (isset($_GET['error']) && (int)$_GET['error'] == 1) { ?>
+            <span style="color: red"> Vérifiez les champs !</span>
+        <?php }
+        ?>
+    </form>
+</div>
+</body>
+</html>
+
 <script>
     tinymce.init({
         selector: '#editContent'
     });
 </script>
-<a href="read.php?id=<?=$chapter['id']?>"><img style="max-width: 50px" src="../img/109618.png"></a>
-<body>
-<div class="container border rounded shadow" style="margin-top: 15px; padding-bottom: 15px; margin-bottom: 15px;">
-    <form method="post" action="../controllers/ChapterController.php?action=edit">
-        <div class="form-group" >
-            <label for="exampleInputEmail1">Titre</label>
-            <input type="text" class="form-control" id="exampleInputTitle1" value="<?= htmlspecialchars($chapter['title'])?>" aria-describedby="emailHelp" name="title" placeholder="Titre du chapître">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">ID</label>
-            <input type="number" class="form-control" id="exampleID" value="<?=$id?>" aria-describedby="id" name="nonq" placeholder="Numéro chapître" disabled>
-            <input type="number" class="form-control d-none" id="exampleID" value="<?= htmlspecialchars($chapter['id'])?>" aria-describedby="id" name="idchapter" placeholder="Numéro chapître">
-        </div>
-        <label for="exampleFormControlTextarea1">Contenu</label>
-        <textarea class="form-control" id="editContent" name="content" rows="3"><?= htmlspecialchars($chapter['content'])?></textarea>
-        <br>
-        <a href="read.php?id=<?=$chapter['id']?><button type="button" class="btn btn-primary">Annuler</button></a>
-        <button type="submit" class="btn btn-primary">Valider</button>
-
-    </form>
-</div>
-</body>
-</html>

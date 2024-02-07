@@ -26,8 +26,7 @@ include_once("../head.php")
             <input type="text" class="form-control" id="exampleInputTitle1" value="<?= htmlspecialchars_decode($chapter['title'])?>" aria-describedby="emailHelp" name="title" placeholder="Titre du chapître">
         </div>
         <div class="form-group">
-            <label for="exampleID">ID</label>
-            <input type="number" class="form-control" disabled id="exampleID" value="<?= htmlspecialchars($chapter['id'])?>"  name="idchapter" placeholder="Numéro chapître">
+            <input type="number" class="form-control d-none" id="exampleID" value="<?= $chapter['id']?>"  name="idchapter" placeholder="Numéro chapître">
         </div>
         <label for="editContent">Contenu</label>
         <textarea class="form-control" id="editContent" name="content" rows="3"><?= htmlspecialchars_decode($chapter['content']) ?></textarea>

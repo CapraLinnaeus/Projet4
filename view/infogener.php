@@ -1,16 +1,11 @@
 <?php
 
-
-require_once("../controllers/CommentController.php");
-require_once("../controllers/InfoController.php");
-
-
-$commentController = new CommentController();
-$infoController = new InfoController();
-$reportedComments = $commentController->getAdminComments()['reportedComments'];
-$recentComments = $commentController->getAdminComments()['recentComments'];
-$title = $infoController->getInfo()['title'];
-$resume = $infoController->getInfo()['resume'];
+require_once('../router.php');
+$infoGener = getInfoGener();
+$reportedComments = $infoGener['reportedComments'];
+$recentComments = $infoGener['recentComments'];
+$title = $infoGener['title'];
+$resume = $infoGener['resume'];
 
 //$title = $title->fetch();
 if (session_status() == PHP_SESSION_NONE) {

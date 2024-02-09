@@ -1,14 +1,11 @@
 <?php
 
-require_once("controllers/InfoController.php");
-require_once("controllers/ChapterController.php");
+require_once("./router.php");
+$chaptersInfo = getChapters();
+$chapters = $chaptersInfo['chapters'];
+$title = $chaptersInfo['infos']['title'];
+$resume = $chaptersInfo['infos']['resume'];
 
-$chapterController = new ChapterController();
-$infoController = new InfoController();
-$chapters = $chapterController->getChapters()['chapters'];
-$infos = $infoController->getInfo();
-$title = $infos['title'];
-$resume = $infos['resume'];
 
 
 if (session_status() == PHP_SESSION_NONE) {

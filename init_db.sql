@@ -43,8 +43,9 @@ CREATE TABLE `comment`
 
 CREATE TABLE `infogener`
 (
-    `info`  varchar(20) DEFAULT NULL,
-    `value` text
+    `info`  varchar(20),
+    `value` text,
+    PRIMARY KEY (`info`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -60,7 +61,7 @@ CREATE TABLE `user`
 
 
 INSERT INTO `user` (`id`, `identifiant`, `mdp`, `email`)
-VALUES (1, 'j.forteroche', SHA2('ecrivain123', 256), NULL);
+VALUES (1, 'j.forteroche', '$2y$10$3fLlp8CU1lODVnpKID/GzOodV6dNn7MPUWGdgrXC1j0TVnO/9lx8C', NULL);
 
 
 ALTER TABLE `user`

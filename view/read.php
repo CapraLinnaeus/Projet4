@@ -1,16 +1,11 @@
 <?php
 $id = $_GET['id'];
-require_once("../controllers/ChapterController.php");
-
-$chapterController = new ChapterController();
-$infos = $chapterController->readChapter($id);
-$chapter = $infos['chapter'];
-$comments = $infos['comments'];
-
-$adjascentChapters = $chapterController->getAdjacentChapters($id);
-$previousChapter = $adjascentChapters['previousChapter'];
-$nextChapter = $adjascentChapters['nextChapter'];
-
+require_once("../router.php");
+$chapterInfo = read($id);
+$previousChapter = $chapterInfo['adjascentChapters']['previousChapter'];
+$nextChapter = $chapterInfo['adjascentChapters']['nextChapter'];
+$chapter = $chapterInfo['infos']['chapter'];
+$comments = $chapterInfo['infos']['comments'];
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -74,8 +69,8 @@ while ($comment = $comments->fetch()) {
 
     ?>
 
-    <div class="container border rounded shadow" style="height:150px; margin-bottom: 15px;">
-        <strong><?= htmlspecialchars_decode($comment['name']) ?></strong>
+    <div class="container border rounded shadow" style="margin-bottom: 10px; padding-bottom: 51px;">
+        <strong><?= $comment['name'] ?></strong>
         le <?= htmlspecialchars($comment['datepublication']) ?> <?= htmlspecialchars_decode($comment['content']) ?>
         <form method="post" action="../router.php?action=reportComment">
             <input type="text" class="form-control d-none" name="idcomment" value="<?= $comment['id'] ?>">

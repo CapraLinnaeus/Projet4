@@ -1,9 +1,7 @@
 <?php
 $id = $_GET['id'];
-require_once("../controllers/ChapterController.php");
-
-$chapterController = new ChapterController();
-$chapter = $chapterController->readChapter($id)['chapter'];
+require_once('../router.php');
+$chapter = getEdit($id);
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }

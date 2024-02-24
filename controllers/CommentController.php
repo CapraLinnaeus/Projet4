@@ -24,7 +24,7 @@ class CommentController {
     public function addComment()
     {
         if (!($_POST["username"] && $_POST["content"])) {
-            header("Location: ./view/read.php?id=" . $_POST["idchapter"] . "&error=1");
+            header("Location: ./read?id=" . $_POST["idchapter"] . "&error=1");
         } else {
             $this->commentModel->addComment(
                 $_POST["username"],
@@ -32,23 +32,23 @@ class CommentController {
                 date("Y/m/d"),
                 $_POST["idchapter"]
             );
-            header("Location: ./view/read.php?id=" . $_POST["idchapter"]);
+            header("Location: ./read?id=" . $_POST["idchapter"]);
         }
     }
 
     public function reportComment()
     {
         $this->commentModel->reportComment($_POST["reportvalue"],$_POST["idcomment"]);
-        header("Location: ./view/read.php?id=" . $_POST["idchapter"]);
+        header("Location: ./read?id=" . $_POST["idchapter"]);
     }
 
     public function deleteComment($origin)
     {
         $this->commentModel->deleteComment($_POST['idcomment']);
         if ($origin === 'read') {
-            header("Location: ./view/read.php?id=" . $_POST["idchapter"]);
+            header("Location: ./read.php?id=" . $_POST["idchapter"]);
         } else if ($origin === 'admin') {
-            header("Location: ./view/infogener.php");
+            header("Location: ./infogener");
         }
     }
 }

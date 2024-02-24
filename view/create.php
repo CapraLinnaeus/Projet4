@@ -1,22 +1,14 @@
-<?php
+<script>
+    tinymce.init({
+        selector: '#createContent'
+    });
+</script>
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-if (!isset($_SESSION['user_id'])) {
-    header('Location: ../index.php');
-    exit();
-}
-include_once("../head.php")
-?>
-
-
-
-
+</head>
 <body>
-<a href="../index.php"><img style="max-width: 50px" src="../img/109618.png" alt="arrow"></a>
+<a href="./"><img style="max-width: 50px" src="./img/109618.png" alt="arrow"></a>
 <div class="container border rounded shadow" style="margin-top: 15px; margin-bottom: 15px;">
-    <form method="post" action="../router.php?action=createChapter">
+    <form method="post" action="./router.php?action=createChapter">
         <div class="form-group">
             <label for="exampleInputTitle1">Titre</label>
             <input type="text" class="form-control" id="exampleInputTitle1"  name="title"
@@ -46,9 +38,3 @@ include_once("../head.php")
 </div>
 </body>
 </html>
-
-<script>
-    tinymce.init({
-        selector: '#createContent'
-    });
-</script>

@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteBase /Projet4v2/
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^$ index.php [L]
+RewriteRule ^read$ router.php [QSA,L]
+
+RewriteRule ^style/(.*)$ - [L]
+RewriteRule ^img/(.*)$ - [L]
+
+RewriteRule ^(.*)$ router.php [QSA,L]

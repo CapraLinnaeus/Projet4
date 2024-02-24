@@ -26,16 +26,16 @@ class UserController {
                 session_start();
             }
             $_SESSION['user_id'] = $user['id'];
-            header('Location: ./index.php');
+            header('Location: ./');
         } else {
-            header('Location: ./view/login.php?error=1');
+            header('Location: ./login?error=1');
         }
     }
 
     public function logout() {
         session_start();
         session_destroy();
-        header('Location: ./index.php');
+        header('Location: ./');
     }
 }
 ?>

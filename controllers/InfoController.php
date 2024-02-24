@@ -23,7 +23,7 @@ class InfoController {
 
     public function updateInfos() {
         if (!($_POST["title"] && $_POST["resume"])) {
-            header("Location: ./view/infogener.php?error=1");
+            header("Location: ./infogener?error=1");
         } else {
             $this->infoManager->updatetitle($_POST["title"]);
             $this->infoManager->updateResume($_POST["resume"]);

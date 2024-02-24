@@ -1,32 +1,11 @@
-<?php
-
-require_once('../router.php');
-$infoGener = getInfoGener();
-$reportedComments = $infoGener['reportedComments'];
-$recentComments = $infoGener['recentComments'];
-$title = $infoGener['title'];
-$resume = $infoGener['resume'];
-
-//$title = $title->fetch();
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-if (!isset($_SESSION['user_id'])) {
-    header('Location: ../index.php');
-    exit();
-}
-include_once("../head.php");
-?>
-
-
 <body>
-<a href="../index.php"><img style="max-width: 50px" src="../img/109618.png" alt="arrow"></a>
+<a href="./"><img style="max-width: 50px" src="./img/109618.png" alt="arrow"></a>
 <h1 class="text-center">Informations générales</h1>
 <br>
 
 <div class="container">
 
-    <form method="post" action="../router.php?action=updateInfos"
+    <form method="post" action="./router.php?action=updateInfos"
           class="container border rounded shadow">
         <div class="form-group">
             <label for="exampleInputTitle1">Titre</label>
@@ -63,7 +42,7 @@ include_once("../head.php");
             <div class="container border" style="border: 1px solid silver; margin-top: 20px; margin-bottom: 55px; background-color: #f6f6f6">
                 <strong><?= htmlspecialchars($reportedComment['name']) ?></strong>
                 le <?= htmlspecialchars($reportedComment['datepublication']) ?> <?=htmlspecialchars_decode($reportedComment['content'])?>
-                <form method="post" action="../router.php?action=deleteCommentAdmin">
+                <form method="post" action="./router.php?action=deleteCommentAdmin">
                     <input type="text" class="form-control d-none" name="idcomment" value="<?= $reportedComment['id'] ?>">
                     <?php if (isset($_SESSION['user_id'])) { ?>
                         <button type="submit" class="btn btn-outline-danger" style="position: relative; float: right; margin-top: 5px;">

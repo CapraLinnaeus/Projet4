@@ -33,21 +33,21 @@ class ChapterController {
     public function edit()
     {
         if (!($_POST["idchapter"] && $_POST["title"] && $_POST["content"])) {
-            header("Location: ./view/edit.php?id=" . $_POST["idchapter"] . "&error=1");
+            header("Location: ./edit?id=" . $_POST["idchapter"] . "&error=1");
         } else {
             $this->chapterModel->updateChapter(
                 $_POST["title"],
                 $_POST["content"],
                 $_POST["idchapter"]
             );
-            header("Location: ./view/read.php?id=" . $_POST["idchapter"]);
+            header("Location: ./read?id=" . $_POST["idchapter"]);
         }
     }
 
     public function create() {
         try {
             if (!($_POST["number"] && $_POST["title"] && $_POST["content"])) {
-                header("Location: ./view/create.php?error=1");
+                header("Location: ./create?error=1");
             } else {
                 $this->chapterModel->createChapter(
                     $_POST["number"],
@@ -58,7 +58,7 @@ class ChapterController {
                 header('Location: ./');
             }
         } catch (Exception $e) {
-            header("Location: ./view/create.php?error=2");
+            header("Location: ./create?error=2");
         }
     }
 
